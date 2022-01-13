@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Room</string>
+    <string name="panel">ПАНЕЛЬ</string>
+    <string name="catalogProducts">ТОВАРЫ</string>
+    <string name="catalogClothes">ОДЕЖДА</string>
+    <string name="catalogCategories">КАТЕГОРИИ</string>
+
+
+    <string name="addCategory">ДОБАВИТЬ КАТЕГОРИЮ</string>
+    <string name="addProduct">ДОБАВИТЬ ТОВАР</string>
+
+    <string name="editCategory">РЕДАКТИРОВАНИЕ КАТЕГОРИИ</string>
+    <string name="editProduct">РЕДАКТИРОВАНИЕ ТОВАРА</string>
+
+
+    <string name="labelEnterCategory">Введите название категории</string>
+    <string name="labelEnterNameProduct">Введите название товара</string>
+    <string name="labelEnterNumberCategory">Введите номер категории</string>
+    <string name="labelEnterPriceProduct">Введите цену товара</string>
+
+    <string name="deleteAllCategories">УДАЛИТЬ ВСЕ КАТЕГОРИИ</string>
+    <string name="deleteAllProducts">УДАЛИТЬ ВСЕ ТОВАРЫ</string>
+
+    <string name="shoes">ОБУВЬ</string>
+    <string name="accessories">АКСЕССУАРЫ</string>
+
+
+</resources>
