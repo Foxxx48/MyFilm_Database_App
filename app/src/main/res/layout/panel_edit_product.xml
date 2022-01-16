@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".tabs.PanelEditProduct">
 
     <FrameLayout
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Tabs.products.PanelEditProduct">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -63,7 +65,7 @@
                 app:boxStrokeColor="@android:color/white"
                 app:startIconTint="@android:color/white"
                 app:endIconTint="@android:color/holo_red_light"
-                android:hint="@string/labelEnterNumberCategory"
+                android:hint="@string/labelEnterCategory"
                 app:hintTextColor="@android:color/white"
                 app:startIconDrawable="@drawable/catalog_products"
                 app:endIconMode="clear_text"

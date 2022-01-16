@@ -1,4 +1,4 @@
-package com.fox.myfilmdatabaseapp.Tabs.products
+package com.fox.myfilmdatabaseapp.tabs
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -9,20 +9,20 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
-import com.fox.myfilmdatabaseapp.Database
-import com.fox.myfilmdatabaseapp.ProductsRepository
-import com.fox.myfilmdatabaseapp.R
-import com.fox.myfilmdatabaseapp.databinding.PanelEditProductBinding
-import com.fox.myfilmdatabaseapp.room.Tabs.products.ProductsViewModel
-import com.fox.myfilmdatabaseapp.room.Tabs.products.ProductsViewModelFactory
-
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.fox.myfilmdatabaseapp.R
+import com.fox.myfilmdatabaseapp.db.Database
+import com.fox.myfilmdatabaseapp.databinding.PanelEditProductBinding
+import com.fox.myfilmdatabaseapp.repositories.ProductRepository
+import com.fox.myfilmdatabaseapp.viewModels.ProductFactory
+import com.fox.myfilmdatabaseapp.viewModels.ProductViewModel
 
 class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.OnClickListener {
 
     private var binding: PanelEditProductBinding? = null
-    private var productsRepository: ProductsRepository? = null
-    private var productsViewModel: ProductsViewModel? = null
+    private var productRepository: ProductRepository? = null
+    private var productViewModel: ProductViewModel? = null
+    private var factory: ProductFactory? = null
     private var idProduct:Int? = null
 
 
@@ -39,10 +39,10 @@ class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.On
         binding?.editPriceProduct?.setText(arguments?.getString("priceProduct").toString())
 
 
-        val productsDao = Database.getInstance((context as FragmentActivity).application).productsDAO
-        productsRepository = ProductsRepository(productsDao)
-        val factory = ProductsViewModelFactory(productsRepository!!)
-        productsViewModel = ViewModelProvider(this,factory).get(ProductsViewModel::class.java)
+        val productDao = Database.getInstance((context as FragmentActivity).application).productDAO
+        productRepository = ProductRepository(productDao)
+       factory = ProductFactory(productRepository!!)
+        productViewModel = ViewModelProvider(this, factory!!).get(ProductViewModel::class.java)
 
         binding?.editNameProduct?.setOnKeyListener(this)
         binding?.editCategoryProduct?.setOnKeyListener(this)
@@ -96,12 +96,12 @@ class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.On
     }
 
     override fun onClick(view: View) {
-        productsViewModel?.startUpdateProduct(idProduct.toString().toInt(), binding?.resEditNameProduct?.text?.toString()!!,
+        productViewModel?.startUpdateProduct(idProduct.toString().toInt(), binding?.resEditNameProduct?.text?.toString()!!,
             binding?.resEditCategoryProduct?.text?.toString()!!, binding?.resEditPriceProduct?.text?.toString()!!)
 
         dismiss()
 
-        (context as FragmentActivity).supportFragmentManager.beginTransaction().replace(R.id.content, CatalogProducts()).commit()
+        (context as FragmentActivity).supportFragmentManager.beginTransaction().replace(R.id.content, TabCategories()).commit()
     }
 
 }

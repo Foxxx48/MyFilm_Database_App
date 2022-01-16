@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
-import com.fox.myfilmdatabaseapp.Tabs.CatalogClothes
-import com.fox.myfilmdatabaseapp.Tabs.Panel
-import com.fox.myfilmdatabaseapp.Tabs.categories.CatalogCategories
-import com.fox.myfilmdatabaseapp.Tabs.products.CatalogProducts
+
 
 import com.fox.myfilmdatabaseapp.databinding.ActivityMainBinding
+import com.fox.myfilmdatabaseapp.tabs.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -23,7 +21,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-        supportFragmentManager.beginTransaction().replace(R.id.content, Panel()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.content, TabPanel()).commit()
 
         binding?.bottomNav?.setOnNavigationItemSelectedListener(this)
         binding?.bottomNav?.selectedItemId = R.id.panelItemBottomNav
@@ -33,10 +31,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
-            R.id.panelItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, Panel()).commit()
-            R.id.catalogProductsItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, CatalogProducts()).commit()
-            R.id.catalogClothesItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, CatalogClothes()).commit()
-            R.id.catalogCategoriesItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, CatalogCategories()).commit()
+            R.id.panelItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, TabPanel()).commit()
+            R.id.catalogProductsItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, TabProducts()).commit()
+            R.id.catalogClothesItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, TabFilters()).commit()
+            R.id.catalogCategoriesItemBottomNav -> supportFragmentManager.beginTransaction().replace(R.id.content, TabCategories()).commit()
         }
 
         return true
