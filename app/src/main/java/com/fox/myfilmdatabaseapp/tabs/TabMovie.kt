@@ -12,15 +12,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fox.myfilmdatabaseapp.R
 import com.fox.myfilmdatabaseapp.db.Database
-import com.fox.myfilmdatabaseapp.databinding.TabFiltersBinding
+import com.fox.myfilmdatabaseapp.databinding.TabProductsBinding
 import com.fox.myfilmdatabaseapp.models.MovieModel
 import com.fox.myfilmdatabaseapp.repositories.MovieRepository
 import com.fox.myfilmdatabaseapp.viewModels.MovieFactory
 import com.fox.myfilmdatabaseapp.viewModels.MovieViewModel
 
-class TabFilters : Fragment() {
 
-    private var binding: TabFiltersBinding? = null
+class TabMovie : Fragment() {
+
+    private var binding: TabProductsBinding? = null
     private var movieRepository: MovieRepository? = null
     private var movieViewModel: MovieViewModel? = null
     private var movieFactory: MovieFactory? = null
@@ -31,30 +32,32 @@ class TabFilters : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.tab_filters, container, false)
+       binding = DataBindingUtil.inflate(inflater, R.layout.tab_movies, container, false)
 
         val productDao = Database.getInstance((context as FragmentActivity).application).movieDAO
         movieRepository = MovieRepository(productDao)
         movieFactory = MovieFactory(movieRepository!!)
         movieViewModel = ViewModelProvider(this, movieFactory!!).get(MovieViewModel::class.java)
-        initRecyclerFilterProducts()
+        initRecyclerProducts()
 
-
+        binding?.deleteAllProducts?.setOnClickListener(View.OnClickListener {
+            movieViewModel?.deleteAllMovies()
+        })
 
         return binding?.root
     }
 
-    private fun initRecyclerFilterProducts(){
-        binding?.recyclerFilter?.layoutManager = LinearLayoutManager(context)
-        movieAdapter = MovieAdapter({ movieModel: MovieModel ->deleteProduct(movieModel)},
-            { movieModel: MovieModel ->editProduct(movieModel)})
-        binding?.recyclerFilter?.adapter = movieAdapter
+    private fun initRecyclerProducts(){
+        binding?.recyclerProducts?.layoutManager = LinearLayoutManager(context)
+        movieAdapter = MovieAdapter({ movieModel:MovieModel->deleteProduct(movieModel)},
+            { movieModel:MovieModel->editProduct(movieModel)})
+        binding?.recyclerProducts?.adapter = movieAdapter
 
-        displayFilterProducts()
+        displayProducts()
     }
 
-    private fun displayFilterProducts(){
-        movieViewModel?.getFilter("одежда", "5000")?.observe(viewLifecycleOwner, Observer {
+    private fun displayProducts(){
+        movieViewModel?.movies?.observe(viewLifecycleOwner, Observer {
             movieAdapter?.setList(it)
             movieAdapter?.notifyDataSetChanged()
         })
@@ -70,11 +73,13 @@ class TabFilters : Fragment() {
         parameters.putString("idProduct", movieModel.id.toString())
         parameters.putString("nameProduct", movieModel.name)
         parameters.putString("categoryProduct", movieModel.category)
-        parameters.putString("priceProduct", movieModel.price)
+        parameters.putString("priceProduct", movieModel.duration)
         panelEditProduct.arguments = parameters
 
         panelEditProduct.show((context as FragmentActivity).supportFragmentManager, "editProduct")
     }
+
+
 
 
 }

@@ -5,13 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.fox.myfilmdatabaseapp.models.CategoryModel
-import com.fox.myfilmdatabaseapp.models.ProductModel
+import com.fox.myfilmdatabaseapp.models.MovieModel
 
 
-@Database(entities = [CategoryModel::class, ProductModel::class],version = 1)
+@Database(entities = [CategoryModel::class, MovieModel::class],version = 1)
 abstract class Database:RoomDatabase() {
 
-    abstract val productDAO : ProductDao
+    abstract val movieDAO : MovieDao
     abstract val categoryDAO : CategoryDao
 
     companion object{

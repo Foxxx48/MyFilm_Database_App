@@ -2,7 +2,6 @@ package com.fox.myfilmdatabaseapp.tabs
 
 import android.os.Bundle
 import android.view.KeyEvent
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,16 +12,16 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.fox.myfilmdatabaseapp.R
 import com.fox.myfilmdatabaseapp.db.Database
 import com.fox.myfilmdatabaseapp.databinding.PanelEditProductBinding
-import com.fox.myfilmdatabaseapp.repositories.ProductRepository
-import com.fox.myfilmdatabaseapp.viewModels.ProductFactory
-import com.fox.myfilmdatabaseapp.viewModels.ProductViewModel
+import com.fox.myfilmdatabaseapp.repositories.MovieRepository
+import com.fox.myfilmdatabaseapp.viewModels.MovieFactory
+import com.fox.myfilmdatabaseapp.viewModels.MovieViewModel
 
-class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.OnClickListener {
+class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnClickListener {
 
     private var binding: PanelEditProductBinding? = null
-    private var productRepository: ProductRepository? = null
-    private var productViewModel: ProductViewModel? = null
-    private var factory: ProductFactory? = null
+    private var movieRepository: MovieRepository? = null
+    private var movieViewModel: MovieViewModel? = null
+    private var factory: MovieFactory? = null
     private var idProduct:Int? = null
 
 
@@ -31,7 +30,7 @@ class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.On
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.panel_edit_product, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.panel_edit_movie, container, false)
 
         idProduct = arguments?.getString("idProduct")?.toInt()
         binding?.editNameProduct?.setText(arguments?.getString("nameProduct").toString())
@@ -39,10 +38,10 @@ class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.On
         binding?.editPriceProduct?.setText(arguments?.getString("priceProduct").toString())
 
 
-        val productDao = Database.getInstance((context as FragmentActivity).application).productDAO
-        productRepository = ProductRepository(productDao)
-       factory = ProductFactory(productRepository!!)
-        productViewModel = ViewModelProvider(this, factory!!).get(ProductViewModel::class.java)
+        val productDao = Database.getInstance((context as FragmentActivity).application).movieDAO
+        movieRepository = MovieRepository(productDao)
+       factory = MovieFactory(movieRepository!!)
+        movieViewModel = ViewModelProvider(this, factory!!).get(MovieViewModel::class.java)
 
         binding?.editNameProduct?.setOnKeyListener(this)
         binding?.editCategoryProduct?.setOnKeyListener(this)
@@ -96,7 +95,7 @@ class PanelEditProduct : BottomSheetDialogFragment(),View.OnKeyListener, View.On
     }
 
     override fun onClick(view: View) {
-        productViewModel?.startUpdateProduct(idProduct.toString().toInt(), binding?.resEditNameProduct?.text?.toString()!!,
+        movieViewModel?.startUpdateProduct(idProduct.toString().toInt(), binding?.resEditNameProduct?.text?.toString()!!,
             binding?.resEditCategoryProduct?.text?.toString()!!, binding?.resEditPriceProduct?.text?.toString()!!)
 
         dismiss()

@@ -6,20 +6,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.fox.myfilmdatabaseapp.R
-import com.fox.myfilmdatabaseapp.databinding.CategoryItemBinding
 import com.fox.myfilmdatabaseapp.databinding.ProductItemBinding
-import com.fox.myfilmdatabaseapp.models.CategoryModel
-import com.fox.myfilmdatabaseapp.models.ProductModel
+import com.fox.myfilmdatabaseapp.models.MovieModel
 
-class ProductAdapter(private val deleteProduct:(ProductModel)->Unit,
-                     private val editProduct:(ProductModel)->Unit) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+class MovieAdapter(private val deleteProduct:(MovieModel)->Unit,
+                   private val editProduct:(MovieModel)->Unit) : RecyclerView.Adapter<MovieAdapter.ProductHolder>() {
 
-    private val productsList = ArrayList<ProductModel>()
+    private val productsList = ArrayList<MovieModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding: ProductItemBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.product_item, parent, false)
+            DataBindingUtil.inflate(layoutInflater, R.layout.movie_item, parent, false)
         return ProductHolder(binding)
     }
 
@@ -31,9 +29,9 @@ class ProductAdapter(private val deleteProduct:(ProductModel)->Unit,
         holder.bind(productsList[position], deleteProduct, editProduct)
     }
 
-    fun setList(products: List<ProductModel>) {
+    fun setList(movies: List<MovieModel>) {
        productsList.clear()
-        productsList.addAll(products)
+        productsList.addAll(movies)
 
     }
 
@@ -41,9 +39,9 @@ class ProductAdapter(private val deleteProduct:(ProductModel)->Unit,
     class ProductHolder(val binding: ProductItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            productsModel: ProductModel,
-            deleteProduct: (ProductModel) -> Unit,
-            editProduct: (ProductModel) -> Unit
+            productsModel: MovieModel,
+            deleteProduct: (MovieModel) -> Unit,
+            editProduct: (MovieModel) -> Unit
 
         ) {
 

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MyFilmDatabaseApp</string>
     <string name="panel">ПАНЕЛЬ</string>
-    <string name="catalogProducts">ТОВАРЫ</string>
-    <string name="catalogClothes">ОДЕЖДА</string>
+    <string name="catalogMovies">ФИЛЬМЫ</string>
+    <string name="catalogActionMovies">БОЕВИКИ</string>
     <string name="catalogCategories">КАТЕГОРИИ</string>
 
 

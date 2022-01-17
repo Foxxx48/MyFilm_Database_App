@@ -30,7 +30,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/headerAddCategory"
             android:layout_marginTop="20dp"
-            android:text="@string/catalogClothes"
+            android:text="@string/catalogActionMovies"
             android:background="@color/orange"
             android:textColor="@color/black"/>
 
@@ -83,7 +83,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:boxStrokeWidthFocused="4dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterNameProduct"
+                android:id="@+id/enter_name_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -105,7 +105,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:endIconTint="@android:color/holo_red_light"
             android:hint="@string/labelEnterCategory"
             app:hintTextColor="@android:color/white"
-            app:startIconDrawable="@drawable/catalog_products"
+            app:startIconDrawable="@drawable/catalog_movies"
             app:endIconMode="clear_text"
             app:boxStrokeWidthFocused="4dp">
 

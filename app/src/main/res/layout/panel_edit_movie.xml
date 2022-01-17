@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".tabs.PanelEditProduct">
+    tools:context=".tabs.PanelEditMovie">
 
     <FrameLayout
 
@@ -67,7 +67,7 @@
                 app:endIconTint="@android:color/holo_red_light"
                 android:hint="@string/labelEnterCategory"
                 app:hintTextColor="@android:color/white"
-                app:startIconDrawable="@drawable/catalog_products"
+                app:startIconDrawable="@drawable/catalog_movies"
                 app:endIconMode="clear_text"
                 app:boxStrokeWidthFocused="4dp">
 

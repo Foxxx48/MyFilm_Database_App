@@ -15,7 +15,7 @@ class CategoryViewModel(private val categoryRepository: CategoryRepository) : Vi
     }
 
     fun startUpdateProduct(idCategories:Int, nameCategories:String) {
-        updateProduct(CategoryModel(idCategories, nameCategories))
+        updateMovie(CategoryModel(idCategories, nameCategories))
     }
 
     fun insert(categoryModel: CategoryModel) = viewModelScope.launch{
@@ -23,7 +23,7 @@ class CategoryViewModel(private val categoryRepository: CategoryRepository) : Vi
         categoryRepository.insertCategory(categoryModel)
     }
 
-    fun updateProduct(categoryModel: CategoryModel) = viewModelScope.launch{
+    fun updateMovie(categoryModel: CategoryModel) = viewModelScope.launch{
 
         categoryRepository.updateCategory(categoryModel)
     }

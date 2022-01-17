@@ -18,15 +18,15 @@
 
     <item
         android:id="@+id/catalogProductsItemBottomNav"
-        android:icon="@drawable/catalog_products"
-        android:title="@string/catalogProducts"
+        android:icon="@drawable/catalog_movies"
+        android:title="@string/catalogMovies"
         app:showAsAction="ifRoom"/>
 
 
     <item
         android:id="@+id/catalogClothesItemBottomNav"
         android:icon="@drawable/catalog_clothes"
-        android:title="@string/catalogClothes"
+        android:title="@string/catalogActionMovies"
         app:showAsAction="ifRoom"/>
 
 </menu>
