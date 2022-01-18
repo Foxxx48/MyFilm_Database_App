@@ -18,7 +18,7 @@
 
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/headerEditProduct"
+                android:id="@+id/headerEditMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -26,26 +26,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="60dp"
                 android:textColor="@color/black"
-                android:text="@string/editProduct"/>
+                android:text="@string/editMovie"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sectionEditNameProduct"
+                android:id="@+id/sectionEditNameMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/headerEditProduct"
+                app:layout_constraintTop_toBottomOf="@id/headerEditMovie"
                 android:layout_margin="10dp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@android:color/white"
                 app:startIconTint="@android:color/white"
                 app:endIconTint="@android:color/holo_red_light"
-                android:hint="@string/labelEnterNameProduct"
+                android:hint="@string/labelEnterNameMovie"
                 app:hintTextColor="@android:color/white"
                 app:startIconDrawable="@drawable/catalog_categories"
                 app:endIconMode="clear_text"
                 app:boxStrokeWidthFocused="4dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editNameProduct"
+                    android:id="@+id/editNameMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -56,10 +56,10 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sectionEditCategoryProduct"
+                android:id="@+id/sectionEditCategoryMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/sectionEditNameProduct"
+                app:layout_constraintTop_toBottomOf="@id/sectionEditNameMovie"
                 android:layout_margin="10dp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@android:color/white"
@@ -72,7 +72,7 @@
                 app:boxStrokeWidthFocused="4dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editCategoryProduct"
+                    android:id="@+id/editCategoryMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -82,23 +82,23 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sectionEditPriceProduct"
+                android:id="@+id/sectionEditPriceMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/sectionEditCategoryProduct"
+                app:layout_constraintTop_toBottomOf="@id/sectionEditCategoryMovie"
                 android:layout_margin="10dp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@android:color/white"
                 app:startIconTint="@android:color/white"
                 app:endIconTint="@android:color/holo_red_light"
-                android:hint="@string/labelEnterPriceProduct"
+                android:hint="@string/labelEnterDurationMovie"
                 app:hintTextColor="@android:color/white"
                 app:startIconDrawable="@drawable/price"
                 app:endIconMode="clear_text"
                 app:boxStrokeWidthFocused="4dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editPriceProduct"
+                    android:id="@+id/editPriceMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -109,29 +109,29 @@
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/sectionResEditProduct"
+                android:id="@+id/sectionResEditMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/sectionEditPriceProduct"
+                app:layout_constraintTop_toBottomOf="@id/sectionEditPriceMovie"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/resEditNameProduct"
+                    android:id="@+id/resEditNameMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/black"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/resEditCategoryProduct"
+                    android:id="@+id/resEditCategoryMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/black"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/resEditPriceProduct"
+                    android:id="@+id/resEditPriceMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -141,12 +141,12 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonEditProduct"
+                android:id="@+id/buttonEditMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/sectionResEditProduct"
+                app:layout_constraintTop_toBottomOf="@id/sectionResEditMovie"
                 android:layout_marginTop="20dp"
-                android:text="@string/editProduct"
+                android:text="@string/editMovie"
                 android:background="@color/black"
                 android:textColor="@color/orange"/>
 

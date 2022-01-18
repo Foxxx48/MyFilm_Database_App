@@ -15,20 +15,20 @@
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/deleteAllProducts"
+                android:id="@+id/delete_all_movies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="20dp"
-                android:text="@string/deleteAllProducts"
+                android:text="@string/deleteAllMovies"
                 android:background="@color/orange"
                 android:textColor="@color/black"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerProducts"
+                android:id="@+id/recycler_movies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/deleteAllProducts"
+                app:layout_constraintTop_toBottomOf="@id/delete_all_movies"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 

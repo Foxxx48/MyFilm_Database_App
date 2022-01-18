@@ -11,18 +11,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.fox.myfilmdatabaseapp.R
 import com.fox.myfilmdatabaseapp.db.Database
-import com.fox.myfilmdatabaseapp.databinding.PanelEditProductBinding
+import com.fox.myfilmdatabaseapp.databinding.PanelEditMovieBinding
 import com.fox.myfilmdatabaseapp.repositories.MovieRepository
 import com.fox.myfilmdatabaseapp.viewModels.MovieFactory
 import com.fox.myfilmdatabaseapp.viewModels.MovieViewModel
 
 class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnClickListener {
 
-    private var binding: PanelEditProductBinding? = null
+    private var binding: PanelEditMovieBinding? = null
     private var movieRepository: MovieRepository? = null
     private var movieViewModel: MovieViewModel? = null
     private var factory: MovieFactory? = null
-    private var idProduct:Int? = null
+    private var idMovie:Int? = null
 
 
     override fun onCreateView(
@@ -32,10 +32,10 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
 
         binding = DataBindingUtil.inflate(inflater, R.layout.panel_edit_movie, container, false)
 
-        idProduct = arguments?.getString("idProduct")?.toInt()
-        binding?.editNameProduct?.setText(arguments?.getString("nameProduct").toString())
-        binding?.editCategoryProduct?.setText(arguments?.getString("categoryProduct").toString())
-        binding?.editPriceProduct?.setText(arguments?.getString("priceProduct").toString())
+        idMovie = arguments?.getString("idMovie")?.toInt()
+        binding?.editNameMovie?.setText(arguments?.getString("nameMovie").toString())
+        binding?.editCategoryMovie?.setText(arguments?.getString("categoryMovie").toString())
+        binding?.editDurationMovie?.setText(arguments?.getString("durationMovie").toString())
 
 
         val productDao = Database.getInstance((context as FragmentActivity).application).movieDAO
@@ -43,11 +43,11 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
        factory = MovieFactory(movieRepository!!)
         movieViewModel = ViewModelProvider(this, factory!!).get(MovieViewModel::class.java)
 
-        binding?.editNameProduct?.setOnKeyListener(this)
-        binding?.editCategoryProduct?.setOnKeyListener(this)
-        binding?.editPriceProduct?.setOnKeyListener(this)
+        binding?.editNameMovie?.setOnKeyListener(this)
+        binding?.editCategoryMovie?.setOnKeyListener(this)
+        binding?.editDurationMovie?.setOnKeyListener(this)
 
-        binding?.buttonEditProduct?.setOnClickListener(this)
+        binding?.buttonEditMovie?.setOnClickListener(this)
 
 
         return binding?.root
@@ -57,33 +57,33 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
         when (view.id) {
 
 
-            R.id.editNameProduct -> {
+            R.id.editNameMovie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
 
-                    binding?.resEditNameProduct?.text = binding?.editNameProduct?.text
-                    binding?.editNameProduct?.setText("")
+                    binding?.resEditNameMovie?.text = binding?.editNameMovie?.text
+                    binding?.editNameMovie?.setText("")
 
                     return true
                 }
 
             }
 
-            R.id.editCategoryProduct -> {
+            R.id.editCategoryMovie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
 
-                    binding?.resEditCategoryProduct?.text = binding?.editCategoryProduct?.text
-                    binding?.editCategoryProduct?.setText("")
+                    binding?.resEditCategoryMovie?.text = binding?.editCategoryMovie?.text
+                    binding?.editCategoryMovie?.setText("")
 
                     return true
                 }
 
             }
 
-            R.id.editPriceProduct -> {
+            R.id.editPriceMovie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
 
-                    binding?.resEditPriceProduct?.text = binding?.editPriceProduct?.text
-                    binding?.editPriceProduct?.setText("")
+                    binding?.resEditDurarionMovie?.text = binding?.editDurationMovie?.text
+                    binding?.editDurationMovie?.setText("")
 
                     return true
                 }
@@ -95,8 +95,8 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
     }
 
     override fun onClick(view: View) {
-        movieViewModel?.startUpdateProduct(idProduct.toString().toInt(), binding?.resEditNameProduct?.text?.toString()!!,
-            binding?.resEditCategoryProduct?.text?.toString()!!, binding?.resEditPriceProduct?.text?.toString()!!)
+        movieViewModel?.startUpdateProduct(idMovie.toString().toInt(), binding?.resEditNameMovie?.text?.toString()!!,
+            binding?.resEditCategoryMovie?.text?.toString()!!, binding?.resEditPriceMovie?.text?.toString()!!)
 
         dismiss()
 

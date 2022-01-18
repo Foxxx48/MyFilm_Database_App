@@ -33,47 +33,47 @@ class TabFilters : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.tab_filters, container, false)
 
-        val productDao = Database.getInstance((context as FragmentActivity).application).movieDAO
-        movieRepository = MovieRepository(productDao)
+        val movieDao = Database.getInstance((context as FragmentActivity).application).movieDAO
+        movieRepository = MovieRepository(movieDao)
         movieFactory = MovieFactory(movieRepository!!)
         movieViewModel = ViewModelProvider(this, movieFactory!!).get(MovieViewModel::class.java)
-        initRecyclerFilterProducts()
+        initRecyclerFilterMovies()
 
 
 
         return binding?.root
     }
 
-    private fun initRecyclerFilterProducts(){
+    private fun initRecyclerFilterMovies(){
         binding?.recyclerFilter?.layoutManager = LinearLayoutManager(context)
-        movieAdapter = MovieAdapter({ movieModel: MovieModel ->deleteProduct(movieModel)},
-            { movieModel: MovieModel ->editProduct(movieModel)})
+        movieAdapter = MovieAdapter({ movieModel: MovieModel ->deleteMovie(movieModel)},
+            { movieModel: MovieModel ->editMovie(movieModel)})
         binding?.recyclerFilter?.adapter = movieAdapter
 
-        displayFilterProducts()
+        displayFilterMovies()
     }
 
-    private fun displayFilterProducts(){
-        movieViewModel?.getFilter("одежда", "5000")?.observe(viewLifecycleOwner, Observer {
+    private fun displayFilterMovies(){
+        movieViewModel?.getFilter("Экшн", "137 мин.")?.observe(viewLifecycleOwner, Observer {
             movieAdapter?.setList(it)
             movieAdapter?.notifyDataSetChanged()
         })
     }
 
-    private fun deleteProduct(movieModel:MovieModel) {
+    private fun deleteMovie(movieModel:MovieModel) {
         movieViewModel?.deleteMovie(movieModel)
     }
 
-    private fun editProduct(movieModel:MovieModel) {
-        val panelEditProduct = PanelEditMovie()
+    private fun editMovie(movieModel:MovieModel) {
+        val panelEditMovie = PanelEditMovie()
         val parameters = Bundle()
-        parameters.putString("idProduct", movieModel.id.toString())
-        parameters.putString("nameProduct", movieModel.name)
-        parameters.putString("categoryProduct", movieModel.category)
-        parameters.putString("priceProduct", movieModel.price)
-        panelEditProduct.arguments = parameters
+        parameters.putString("idMovie", movieModel.id.toString())
+        parameters.putString("nameMovie", movieModel.name)
+        parameters.putString("categoryMovie", movieModel.category)
+        parameters.putString("durationMovie", movieModel.duration)
+        panelEditMovie.arguments = parameters
 
-        panelEditProduct.show((context as FragmentActivity).supportFragmentManager, "editProduct")
+        panelEditMovie.show((context as FragmentActivity).supportFragmentManager, "editMovie")
     }
 
 

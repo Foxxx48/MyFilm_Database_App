@@ -25,7 +25,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonAddCategoryClothes"
+            android:id="@+id/button_add_category_movies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/headerAddCategory"
@@ -35,48 +35,48 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:textColor="@color/black"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonAddCategoryShoes"
+            android:id="@+id/button_add_category_action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonAddCategoryClothes"
+            app:layout_constraintTop_toBottomOf="@id/button_add_category_movies"
             android:layout_marginTop="10dp"
-            android:text="@string/shoes"
+            android:text="@string/action"
             android:background="@color/orange"
             android:textColor="@color/black"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonAddCategoryAccessories"
+            android:id="@+id/button_add_category_animation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonAddCategoryShoes"
+            app:layout_constraintTop_toBottomOf="@id/button_add_category_action"
             android:layout_marginTop="10dp"
-            android:text="@string/accessories"
+            android:text="@string/animation"
             android:background="@color/orange"
             android:textColor="@color/black"/>
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/headerAddProduct"
+            android:id="@+id/headerAddMovie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonAddCategoryAccessories"
+            app:layout_constraintTop_toBottomOf="@id/button_add_category_animation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="60dp"
             android:textColor="@color/orange"
-            android:text="@string/addProduct"/>
+            android:text="@string/addMovie"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/sectionEnterNameProduct"
+            android:id="@+id/sectionEnterNameMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/headerAddProduct"
+            app:layout_constraintTop_toBottomOf="@id/headerAddMovie"
             android:layout_margin="10dp"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@android:color/white"
             app:startIconTint="@android:color/white"
             app:endIconTint="@android:color/holo_red_light"
-            android:hint="@string/labelEnterNameProduct"
+            android:hint="@string/labelEnterNameMovie"
             app:hintTextColor="@android:color/white"
             app:startIconDrawable="@drawable/catalog_categories"
             app:endIconMode="clear_text"
@@ -94,10 +94,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/sectionEnterCategoryProduct"
+            android:id="@+id/sectionEnterCategoryMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/sectionEnterNameProduct"
+            app:layout_constraintTop_toBottomOf="@id/sectionEnterNameMovie"
             android:layout_margin="10dp"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@android:color/white"
@@ -110,7 +110,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:boxStrokeWidthFocused="4dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterCategoryProduct"
+                android:id="@+id/enter_category_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -120,23 +120,23 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/sectionEnterPriceProduct"
+            android:id="@+id/sectionEnterDurationMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/sectionEnterCategoryProduct"
+            app:layout_constraintTop_toBottomOf="@id/sectionEnterCategoryMovie"
             android:layout_margin="10dp"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@android:color/white"
             app:startIconTint="@android:color/white"
             app:endIconTint="@android:color/holo_red_light"
-            android:hint="@string/labelEnterPriceProduct"
+            android:hint="@string/labelEnterDurationMovie"
             app:hintTextColor="@android:color/white"
             app:startIconDrawable="@drawable/price"
             app:endIconMode="clear_text"
             app:boxStrokeWidthFocused="4dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterPriceProduct"
+                android:id="@+id/enter_duration_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -147,30 +147,30 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/sectionResEnterProduct"
+            android:id="@+id/sectionResEnterMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/sectionEnterPriceProduct"
+            app:layout_constraintTop_toBottomOf="@id/sectionEnterDurationMovie"
             android:layout_marginTop="20dp"
             android:padding="10dp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/resEnterNameProduct"
+                android:id="@+id/res_enter_name_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/orange"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/resEnterCategoryProduct"
+                android:id="@+id/res_enter_category_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/orange"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/resEnterPriceProduct"
+                android:id="@+id/res_enter_duration_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -180,12 +180,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonAddProduct"
+            android:id="@+id/button_add_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/sectionResEnterProduct"
+            app:layout_constraintTop_toBottomOf="@id/sectionResEnterMovie"
             android:layout_marginTop="20dp"
-            android:text="@string/addProduct"
+            android:text="@string/addMovie"
             android:background="@color/orange"
             android:textColor="@color/black"/>
 

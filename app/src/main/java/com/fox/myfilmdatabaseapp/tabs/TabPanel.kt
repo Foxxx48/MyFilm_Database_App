@@ -48,14 +48,14 @@ class TabPanel : Fragment(), View.OnClickListener, View.OnKeyListener {
         movieViewModel = ViewModelProvider(this,movieFactory!!).get(MovieViewModel::class.java)
 
         binding?.enterNameMovie?.setOnKeyListener(this)
-        binding?.enterCategoryProduct?.setOnKeyListener(this)
-        binding?.enterPriceProduct?.setOnKeyListener(this)
+        binding?.enterCategoryMovie?.setOnKeyListener(this)
+        binding?.enterDurationMovie?.setOnKeyListener(this)
 
-        binding?.buttonAddProduct?.setOnClickListener(this)
+        binding?.buttonAddMovie?.setOnClickListener(this)
 
-        binding?.buttonAddCategoryClothes?.setOnClickListener(this)
-        binding?.buttonAddCategoryShoes?.setOnClickListener(this)
-        binding?.buttonAddCategoryAccessories?.setOnClickListener(this)
+        binding?.buttonAddCategoryMovies?.setOnClickListener(this)
+        binding?.buttonAddCategoryAction?.setOnClickListener(this)
+        binding?.buttonAddCategoryAnimation?.setOnClickListener(this)
 
         return binding?.root
     }
@@ -64,28 +64,28 @@ class TabPanel : Fragment(), View.OnClickListener, View.OnKeyListener {
     override fun onKey(view: View, i: Int, keyEvent: KeyEvent): Boolean {
         when (view.id) {
 
-            R.id.enterNameProduct -> {
+            R.id.enter_name_movie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
-                    binding?.resEnterNameProduct?.text = binding?.enterNameMovie?.text
+                    binding?.resEnterNameMovie?.text = binding?.enterNameMovie?.text
                     binding?.enterNameMovie?.setText("")
                     return true
                 }
 
             }
 
-            R.id.enterCategoryProduct -> {
+            R.id.enter_category_movie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
-                    binding?.resEnterCategoryProduct?.text = binding?.enterCategoryProduct?.text
-                    binding?.enterCategoryProduct?.setText("")
+                    binding?.resEnterCategoryMovie?.text = binding?.enterCategoryMovie?.text
+                    binding?.enterCategoryMovie?.setText("")
                     return true
                 }
 
             }
 
-            R.id.enterPriceProduct -> {
+            R.id.enter_duration_movie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
-                    binding?.resEnterPriceProduct?.text = binding?.enterPriceProduct?.text
-                    binding?.enterPriceProduct?.setText("")
+                    binding?.resEnterDurationMovie?.text = binding?.enterDurationMovie?.text
+                    binding?.enterDurationMovie?.setText("")
                     return true
                 }
 
@@ -99,41 +99,41 @@ class TabPanel : Fragment(), View.OnClickListener, View.OnKeyListener {
 
         when(view.id) {
 
-            R.id.buttonAddCategoryClothes -> {
+            R.id.button_add_category_movies -> {
 
-               categoryViewModel?.startInsert(binding?.buttonAddCategoryClothes?.text?.toString()!!)
-
-            }
-
-            R.id.buttonAddCategoryShoes -> {
-
-                categoryViewModel?.startInsert(binding?.buttonAddCategoryShoes?.text?.toString()!!)
+               categoryViewModel?.startInsert(binding?.buttonAddCategoryMovies?.text?.toString()!!)
 
             }
 
-            R.id.buttonAddCategoryAccessories -> {
+            R.id.`@+id/button_add_category_action` -> {
 
-                categoryViewModel?.startInsert(binding?.buttonAddCategoryAccessories?.text?.toString()!!)
+                categoryViewModel?.startInsert(binding?.buttonAddCategoryAction?.text?.toString()!!)
 
             }
 
-            R.id.buttonAddProduct -> {
+            R.id.`@+id/button_add_category_animation` -> {
 
-                movieViewModel?.startInsert(binding?.resEnterNameProduct?.text?.toString()!!,
-                    binding?.resEnterCategoryProduct?.text?.toString()!!,
-                    binding?.resEnterPriceProduct?.text?.toString()!!)
+                categoryViewModel?.startInsert(binding?.buttonAddCategoryAnimation?.text?.toString()!!)
 
-                clearResEnterProduct()
+            }
+
+            R.id.`@+id/button_add_movie` -> {
+
+                movieViewModel?.startInsert(binding?.resEnterNameMovie?.text?.toString()!!,
+                    binding?.resEnterCategoryMovie?.text?.toString()!!,
+                    binding?.resEnterDurationMovie?.text?.toString()!!)
+
+                clearResEnterMovie()
 
             }
         }
 
     }
 
-    private fun clearResEnterProduct() {
-        binding?.resEnterNameProduct?.setText("")
-        binding?.resEnterCategoryProduct?.setText("")
-        binding?.resEnterPriceProduct?.setText("")
+    private fun clearResEnterMovie() {
+        binding?.resEnterNameMovie?.setText("")
+        binding?.resEnterCategoryMovie?.setText("")
+        binding?.resEnterDurationMovie?.setText("")
 
     }
 

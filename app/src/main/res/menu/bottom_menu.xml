@@ -17,15 +17,15 @@
 
 
     <item
-        android:id="@+id/catalogProductsItemBottomNav"
+        android:id="@+id/catalogMoviesItemBottomNav"
         android:icon="@drawable/catalog_movies"
         android:title="@string/catalogMovies"
         app:showAsAction="ifRoom"/>
 
 
     <item
-        android:id="@+id/catalogClothesItemBottomNav"
-        android:icon="@drawable/catalog_clothes"
+        android:id="@+id/catalogActionItemBottomNav"
+        android:icon="@drawable/catalog_action_movie"
         android:title="@string/catalogActionMovies"
         app:showAsAction="ifRoom"/>
 

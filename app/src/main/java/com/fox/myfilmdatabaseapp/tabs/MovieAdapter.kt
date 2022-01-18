@@ -6,56 +6,56 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.fox.myfilmdatabaseapp.R
-import com.fox.myfilmdatabaseapp.databinding.ProductItemBinding
+import com.fox.myfilmdatabaseapp.databinding.MovieItemBinding
 import com.fox.myfilmdatabaseapp.models.MovieModel
 
-class MovieAdapter(private val deleteProduct:(MovieModel)->Unit,
-                   private val editProduct:(MovieModel)->Unit) : RecyclerView.Adapter<MovieAdapter.ProductHolder>() {
+class MovieAdapter(private val deleteMovie:(MovieModel)->Unit,
+                   private val editMovie:(MovieModel)->Unit) : RecyclerView.Adapter<MovieAdapter.MovieHolder>() {
 
-    private val productsList = ArrayList<MovieModel>()
+    private val MoviesList = ArrayList<MovieModel>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding: ProductItemBinding =
+        val binding: MovieItemBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.movie_item, parent, false)
-        return ProductHolder(binding)
+        return MovieHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return productsList.size
+        return MoviesList.size
     }
 
-    override fun onBindViewHolder(holder: ProductHolder, position: Int) {
-        holder.bind(productsList[position], deleteProduct, editProduct)
+    override fun onBindViewHolder(holder: MovieHolder, position: Int) {
+        holder.bind(MoviesList[position], deleteMovie, editMovie)
     }
 
     fun setList(movies: List<MovieModel>) {
-       productsList.clear()
-        productsList.addAll(movies)
+       MoviesList.clear()
+        MoviesList.addAll(movies)
 
     }
 
 
-    class ProductHolder(val binding: ProductItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MovieHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            productsModel: MovieModel,
-            deleteProduct: (MovieModel) -> Unit,
-            editProduct: (MovieModel) -> Unit
+            movieModel: MovieModel,
+            deleteMovie: (MovieModel) -> Unit,
+            editMovie: (MovieModel) -> Unit
 
         ) {
 
-            binding.idProduct.text = productsModel.id.toString()
-            binding.nameProduct.text = productsModel.name
-            binding.categoryProduct.text = productsModel.category
-            binding.priceProduct.text = productsModel.price
+            binding.idMovie.text = movieModel.id.toString()
+            binding.nameMovie.text = movieModel.name
+            binding.categoryMovie.text = movieModel.category
+            binding.durationMovie.text = movieModel.duration
 
-            binding.editProduct.setOnClickListener(View.OnClickListener {
-                editProduct(productsModel)
+            binding.editMovie.setOnClickListener(View.OnClickListener {
+                editMovie(movieModel)
             })
 
-            binding.deleteProduct.setOnClickListener(View.OnClickListener {
-                deleteProduct(productsModel)
+            binding.deleteMovie.setOnClickListener(View.OnClickListener {
+                deleteMovie(movieModel)
             })
 
         }

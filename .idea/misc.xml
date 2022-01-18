@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/GFox/AndroidStudioProjects/MyFilm_Database_App/app/src/main/res/drawable/catalog_categories.xml" value="0.24444444444444444" />
+        <entry key="..\:/Users/GFox/AndroidStudioProjects/MyFilm_Database_App/app/src/main/res/drawable/catalog_clothes.xml" value="0.24444444444444444" />
+        <entry key="..\:/Users/GFox/AndroidStudioProjects/MyFilm_Database_App/app/src/main/res/drawable/catalog_movies.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/dzuba/StudioProjects/MyFilmDatabaseApp/app/src/main/res/drawable/catalog_categories.xml" value="0.11822916666666666" />
         <entry key="..\:/Users/dzuba/StudioProjects/MyFilmDatabaseApp/app/src/main/res/drawable/catalog_clothes.xml" value="0.11822916666666666" />
         <entry key="..\:/Users/dzuba/StudioProjects/MyFilmDatabaseApp/app/src/main/res/drawable/catalog_movies.xml" value="0.11822916666666666" />

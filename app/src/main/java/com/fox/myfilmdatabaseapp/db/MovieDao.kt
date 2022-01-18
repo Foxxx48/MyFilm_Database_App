@@ -23,7 +23,7 @@ interface MovieDao {
     @Query("SELECT * FROM movie_data_table")
     fun getAllMovies(): LiveData<List<MovieModel>>
 
-    @Query("SELECT * FROM movie_data_table WHERE movie_category = :nameCategory AND movie_duration = :movieDudation")
+    @Query("SELECT * FROM movie_data_table WHERE movie_category = :nameCategory AND movie_duration = :movieDuration")
     fun getFilter(nameCategory:String, priceProduct:String): LiveData<List<MovieModel>>
 
     @Query("SELECT * FROM movie_data_table WHERE movie_category = 'Одежда' AND movie_duration = '2000'")
