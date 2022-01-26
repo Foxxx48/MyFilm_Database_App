@@ -18,17 +18,17 @@ interface MovieDao {
     suspend fun deleteMovie(movieModel: MovieModel)
 
     @Query("DELETE FROM movie_data_table")
-     fun deleteAllMovies()
+     suspend fun deleteAllMovies()
 
     @Query("SELECT * FROM movie_data_table")
-    fun getAllMovies(): LiveData<List<MovieModel>>
+     fun getAllMovies(): LiveData<List<MovieModel>>
 
     @Query("SELECT * FROM movie_data_table WHERE movie_category = :nameCategory AND movie_duration = :movieDuration")
-    fun getFilter(nameCategory:String, priceProduct:String): LiveData<List<MovieModel>>
+      fun getFilter(nameCategory:String, movieDuration:String): LiveData<List<MovieModel>>
 
-    @Query("SELECT * FROM movie_data_table WHERE movie_category = 'Одежда' AND movie_duration = '2000'")
-    fun getClothes(): LiveData<List<MovieModel>>
+    @Query("SELECT * FROM movie_data_table WHERE movie_category = 'ЭКШН' AND movie_duration = '120'")
+     fun getMovie(): LiveData<List<MovieModel>>
 
-    @Query("SELECT * FROM movie_data_table WHERE movie_category = :nameCategory OR movie_duration = :price")
-    fun getThreeVariant(nameCategory:String, price:String): LiveData<List<MovieModel>>
+    @Query("SELECT * FROM movie_data_table WHERE movie_category = :nameCategory OR movie_duration = :movieDuration")
+     fun getThreeVariant(nameCategory:String, movieDuration:String): LiveData<List<MovieModel>>
 }

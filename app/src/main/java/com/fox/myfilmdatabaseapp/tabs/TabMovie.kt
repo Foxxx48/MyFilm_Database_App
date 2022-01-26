@@ -11,9 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fox.myfilmdatabaseapp.R
+import com.fox.myfilmdatabaseapp.adapters.MovieAdapter
 import com.fox.myfilmdatabaseapp.databinding.TabMoviesBinding
 import com.fox.myfilmdatabaseapp.db.Database
 import com.fox.myfilmdatabaseapp.models.MovieModel
+import com.fox.myfilmdatabaseapp.panels.PanelEditMovie
 import com.fox.myfilmdatabaseapp.repositories.MovieRepository
 import com.fox.myfilmdatabaseapp.viewModels.MovieFactory
 import com.fox.myfilmdatabaseapp.viewModels.MovieViewModel

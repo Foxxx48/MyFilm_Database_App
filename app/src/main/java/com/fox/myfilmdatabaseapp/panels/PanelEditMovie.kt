@@ -1,4 +1,4 @@
-package com.fox.myfilmdatabaseapp.tabs
+package com.fox.myfilmdatabaseapp.panels
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -13,6 +13,8 @@ import com.fox.myfilmdatabaseapp.R
 import com.fox.myfilmdatabaseapp.db.Database
 import com.fox.myfilmdatabaseapp.databinding.PanelEditMovieBinding
 import com.fox.myfilmdatabaseapp.repositories.MovieRepository
+import com.fox.myfilmdatabaseapp.tabs.TabCategories
+import com.fox.myfilmdatabaseapp.tabs.TabMovie
 import com.fox.myfilmdatabaseapp.viewModels.MovieFactory
 import com.fox.myfilmdatabaseapp.viewModels.MovieViewModel
 
@@ -38,8 +40,8 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
         binding?.editDurationMovie?.setText(arguments?.getString("durationMovie").toString())
 
 
-        val productDao = Database.getInstance((context as FragmentActivity).application).movieDAO
-        movieRepository = MovieRepository(productDao)
+        val movieDAO = Database.getInstance((context as FragmentActivity).application).movieDAO
+        movieRepository = MovieRepository(movieDAO)
        factory = MovieFactory(movieRepository!!)
         movieViewModel = ViewModelProvider(this, factory!!).get(MovieViewModel::class.java)
 
@@ -79,10 +81,10 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
 
             }
 
-            R.id.editPriceMovie -> {
+            R.id.editDurationMovie -> {
                 if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
 
-                    binding?.resEditDurarionMovie?.text = binding?.editDurationMovie?.text
+                    binding?.resEditDurationMovie?.text = binding?.editDurationMovie?.text
                     binding?.editDurationMovie?.setText("")
 
                     return true
@@ -95,12 +97,12 @@ class PanelEditMovie : BottomSheetDialogFragment(),View.OnKeyListener, View.OnCl
     }
 
     override fun onClick(view: View) {
-        movieViewModel?.startUpdateProduct(idMovie.toString().toInt(), binding?.resEditNameMovie?.text?.toString()!!,
-            binding?.resEditCategoryMovie?.text?.toString()!!, binding?.resEditPriceMovie?.text?.toString()!!)
+        movieViewModel?.startUpdateMovie(idMovie.toString().toInt(), binding?.resEditNameMovie?.text?.toString()!!,
+            binding?.resEditCategoryMovie?.text?.toString()!!, binding?.resEditDurationMovie?.text?.toString()!!)
 
         dismiss()
 
-        (context as FragmentActivity).supportFragmentManager.beginTransaction().replace(R.id.content, TabCategories()).commit()
+        (context as FragmentActivity).supportFragmentManager.beginTransaction().replace(R.id.content, TabMovie()).commit()
     }
 
 }

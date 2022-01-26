@@ -1,4 +1,4 @@
-package com.fox.myfilmdatabaseapp.tabs
+package com.fox.myfilmdatabaseapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View

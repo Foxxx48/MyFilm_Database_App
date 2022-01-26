@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".tabs.PanelEditMovie">
+    tools:context=".panels.PanelEditMovie">
 
     <FrameLayout
 
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:textColor="@android:color/white"
-                    android:textCursorDrawable="@drawable/cursor"/>
+                    android:textCursorDrawable="@drawable/cursor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,7 +82,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sectionEditPriceMovie"
+                android:id="@+id/sectionEditDurationMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/sectionEditCategoryMovie"
@@ -98,7 +98,7 @@
                 app:boxStrokeWidthFocused="4dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editPriceMovie"
+                    android:id="@+id/editDurationMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -112,7 +112,7 @@
                 android:id="@+id/sectionResEditMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/sectionEditPriceMovie"
+                app:layout_constraintTop_toBottomOf="@id/sectionEditDurationMovie"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
@@ -131,7 +131,7 @@
                     android:textColor="@color/black"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/resEditPriceMovie"
+                    android:id="@+id/res_edit_duration_movie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

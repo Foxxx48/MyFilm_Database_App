@@ -5,28 +5,28 @@
 
     <item
         android:id="@+id/panelItemBottomNav"
-        android:icon="@drawable/edit_white"
-        android:title="@string/panel"
-        app:showAsAction="ifRoom"/>
+        android:icon="@drawable/home"
+        android:title="@string/home"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/catalogCategoriesItemBottomNav"
-        android:icon="@drawable/catalog_categories"
+        android:icon="@drawable/apps"
         android:title="@string/catalogCategories"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 
     <item
         android:id="@+id/catalogMoviesItemBottomNav"
-        android:icon="@drawable/catalog_movies"
+        android:icon="@drawable/movies"
         android:title="@string/catalogMovies"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 
     <item
         android:id="@+id/catalogActionItemBottomNav"
-        android:icon="@drawable/catalog_action_movie"
+        android:icon="@drawable/hd"
         android:title="@string/catalogActionMovies"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 </menu>

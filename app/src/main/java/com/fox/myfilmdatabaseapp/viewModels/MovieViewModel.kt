@@ -12,7 +12,7 @@ class MovieViewModel (private val movieRepository: MovieRepository) : ViewModel(
     val movies = movieRepository.movies
 
 
-    fun getFilter (nameCategory:String, durationMovie:String):
+     fun getFilter (nameCategory:String, durationMovie:String):
             LiveData<List<MovieModel>> {
         return movieRepository.getFilter(nameCategory, durationMovie)
     }
@@ -21,7 +21,7 @@ class MovieViewModel (private val movieRepository: MovieRepository) : ViewModel(
         insertMovie(MovieModel(0,nameMovie, categoryMovie, durationMovie))
     }
 
-    fun startUpdateProduct(idMovie:Int, nameMovie:String, nameCategory:String, durationMovie:String) {
+    fun startUpdateMovie(idMovie:Int, nameMovie:String, nameCategory:String, durationMovie:String) {
         updateMovie(MovieModel(idMovie, nameMovie, nameCategory, durationMovie))
     }
 

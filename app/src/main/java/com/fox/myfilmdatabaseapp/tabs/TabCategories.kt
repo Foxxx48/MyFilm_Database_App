@@ -11,9 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fox.myfilmdatabaseapp.R
+import com.fox.myfilmdatabaseapp.adapters.CategoryAdapter
 import com.fox.myfilmdatabaseapp.db.Database
 import com.fox.myfilmdatabaseapp.databinding.TabCategoriesBinding
 import com.fox.myfilmdatabaseapp.models.CategoryModel
+import com.fox.myfilmdatabaseapp.panels.PanelEditCategory
 import com.fox.myfilmdatabaseapp.repositories.CategoryRepository
 import com.fox.myfilmdatabaseapp.viewModels.CategoryFactory
 import com.fox.myfilmdatabaseapp.viewModels.CategoryViewModel

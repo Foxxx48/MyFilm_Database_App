@@ -105,19 +105,19 @@ class TabPanel : Fragment(), View.OnClickListener, View.OnKeyListener {
 
             }
 
-            R.id.`@+id/button_add_category_action` -> {
+            R.id.button_add_category_action -> {
 
                 categoryViewModel?.startInsert(binding?.buttonAddCategoryAction?.text?.toString()!!)
 
             }
 
-            R.id.`@+id/button_add_category_animation` -> {
+            R.id.button_add_category_animation -> {
 
                 categoryViewModel?.startInsert(binding?.buttonAddCategoryAnimation?.text?.toString()!!)
 
             }
 
-            R.id.`@+id/button_add_movie` -> {
+            R.id.button_add_movie -> {
 
                 movieViewModel?.startInsert(binding?.resEnterNameMovie?.text?.toString()!!,
                     binding?.resEnterCategoryMovie?.text?.toString()!!,

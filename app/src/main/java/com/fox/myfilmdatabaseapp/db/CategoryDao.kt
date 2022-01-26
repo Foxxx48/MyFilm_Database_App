@@ -18,7 +18,7 @@ interface CategoryDao {
     suspend fun deleteCategory(categoryModel: CategoryModel)
 
     @Query("DELETE FROM category_data_table")
-     fun deleteAllCategories()
+    suspend  fun deleteAllCategories()
 
     @Query("SELECT * FROM category_data_table")
     fun getAllCategories(): LiveData<List<CategoryModel>>

@@ -9,7 +9,7 @@ class MovieRepository (private val movieDAO: MovieDao) {
 
     val movies = movieDAO.getAllMovies()
 
-    fun getFilter (nameCategory:String, durationMovie:String):
+     fun getFilter (nameCategory:String, durationMovie:String):
             LiveData<List<MovieModel>> {
         return movieDAO.getFilter(nameCategory, durationMovie)
     }
